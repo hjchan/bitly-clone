@@ -1,2 +1,42 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+<header class="jumbotron text-center">
+	<div class="container">
+		<h1 class="jumbotron-heading">THE LINK KNOWS ALL. SO CAN YOU</h1>
+		<p class="lead text-muted">Measure your links with Bitly, the world's leading link management platform.</p>
+		<p class="lead">Enter URL: </p>
+		<form id="form-id" action="/urls" method="POST">
+			<div class="form-group">
+		    <input class="form-control" type="text" name="long_url" value="<%= params[:long_url] %>">
+		    </div>
+		    <input class="btn btn-outline-primary" type="Submit" value="SHORTEN">
+		 </form>
+
+		<p><%= @url.errors.messages[:ori_url].join if(@url!=nil) %></p>
+	</div>
+
+</header>
+
+<% if !(@url_all.empty?) %>
+
+<table class="table">
+	<thead class="thead-default">
+	<tr>
+		<th>No.</th>
+		<th>Long URL</th>
+		<th>Short URL</th>
+		<th>Click Count</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<% @url_all.each do |x| %>
+	<tr>
+		<td><%= x.id %></td>
+		<td> <a href="<%= x.ori_url %>"><%= x.ori_url %></a></td>
+		<td> <a href="/<%= x.short_url %>">localhost:9393/<%= x.short_url %></a></td>
+		<td><%= x.click_count %></td>
+	</tr>
+	<% end %>
+	</tbody>
+</table>
+
+<% end %>
