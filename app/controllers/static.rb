@@ -1,5 +1,5 @@
 get '/' do
-  @url_all = Url.all
+  @url_all = Url.all.limit(10)
   erb :"static/index"
 end
 
@@ -10,7 +10,7 @@ post '/urls' do
 		url.to_json
 	else
   		@url = url
-  		@url_all = Url.all
+  		@url_all = Url.all.limit(10)
   		erb :"static/index"
 	end
 end

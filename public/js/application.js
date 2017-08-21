@@ -15,7 +15,7 @@ $(document).ready(function() {
 					<tr>\
 						<td>' + data.id + '</td>\
 						<td> <a href=' + data.ori_url + '> ' + data.ori_url + '</a></td>\
-						<td> <a href=' + data.ori_url + '>localhost:9393/' + data.short_url + '</a></td>\
+						<td> <a href="/' + data.short_url + '"">localhost:9393/' + data.short_url + '</a></td>\
 						<td>' + data.click_count + '</td>\
 					</tr>'
 				)

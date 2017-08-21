@@ -27,6 +27,8 @@ gem 'rspec'
 # Adding byebug for debugging
 gem 'byebug'
 
+gem "activerecord-import", ">= 0.2.0"
+
 group :development, :test do
 	# Adding shotgun for local web hosting
 	gem 'shotgun'
